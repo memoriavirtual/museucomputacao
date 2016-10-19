@@ -1,0 +1,80 @@
+﻿-- MySQL dump 10.13  Distrib 5.1.73, for Win64 (unknown)
+--
+-- Host: localhost    Database: museu
+-- ------------------------------------------------------
+-- Server version	5.1.73-community
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `equipamento`
+--
+
+DROP TABLE IF EXISTS `equipamento`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `equipamento` (
+  `ID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `peca` varchar(45) NOT NULL,
+  `ano` int(4) unsigned DEFAULT NULL,
+  `doador` varchar(45) DEFAULT NULL,
+  `origem` varchar(45) DEFAULT NULL,
+  `segmento` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `equipamento`
+--
+
+LOCK TABLES `equipamento` WRITE;
+/*!40000 ALTER TABLE `equipamento` DISABLE KEYS */;
+INSERT INTO `equipamento` VALUES (%1,'Máquina de Calcular MADAS',1940,'ESALQ/USP','Suíça','Cálculo'),(2,'Impressora IBM',1959,'EESC/USP','Estados Unidos','Computação'),(3,'Computador TRS-80',1977,'Bráulio Penazzi','Estados Unidos','Computação'),(4,'Terminal Inteligente Scopus Sagitta 180',1979,'FEA/USP','Brasil','Computação'),(5,'Computador DISMAC',1982,'FEA/USP','Brasil','Computação'),(6,'Computador Prológica CP 400',1983,'-','Brasil','Computação'),(7,'Computador Prológica CP 200S',1984,'Profª Regina Santana','Brasil','Computação'),(8,'Computador Apple II C',1984,'Tereza Costa Osório','Estados Unidos','Computação'),(9,'Computador Apple Macintosh',1985,'GBDI-ICMC/USP','Estados Unidos','Computação'),(10,'Computador CCE EXATO PRO',1984,'-','Brasil','Computação'),(11,'Computador Apple iMac G3',2001,'-','Estados Unidos','Computação'),(12,'Microcomputador Gradiente Expert MSX',1985,'Pró-Reitor de Graduação Dr. Armando Corboni','Brasil','Computação'),(13,'Microcomputador Gradiente MSX Hot Bit',1985,'Thiago Christof','Brasil','Computação'),(14,'Editor de texto TOSHIBA',1986,'Gustavo Ansaldi','Japão','Computação'),(15,'Computador Pessoal AMSTRAD',1988,'Sean Mckee','Inglaterra','Computação'),(16,'Computador Pessoal Compaq Presário 5220',1996,'Dr. Ricardo Camilo','Brasil','Computação'),(17,'Jogo Eletônico Pense Bem',1980,'Cassio Henrique','Brasil','Computação'),(18,'Vídeo Game Atari 2600',0,'Cassio Henrique','-','Computação'),(19,'Computador Atari ST 1040',1985,'Marcos Santana','-','Computação'),(20,'Máquina de Calcular Brunsviga',1934,'ICMC/USP','Alemanha','Cálculo'),(21,'Calculadora Brunsviga 20',1934,'IEE/USP','Alemanha','Cálculo'),(22,'Máquina de Calcular ODHNER',1930,'EESC/USP','Suíça','Cálculo'),(23,'Máquina de Calcular Brunsviga 13RK',1947,'ICMC/USP','Alemanha','Cálculo'),(24,'Máquina de Calcular PRECISA',1962,'Reitoria/USP','Suíça','Cálculo'),(25,'Calculadora Casio-mini CM-602',1972,'Profº Carlos Ceron/UNESP','Japão','Cálculo'),(26,'Palmtop',2004,'ICMC/USP','China','Computação'),(27,'Computador ITAUTEC I-7000',1984,'FEA/USP','Brasil','Computação'),(28,'Perfurador Manual de Cartão',1958,'Júlio Tadeu Joly','Estados Unidos','Computação'),(29,'Régua de Cálculo Faber Castell',0,'Lápis Johann Faber S/A','Alemanha','Cálculo'),(30,'Régua de Cálculo LUPA',0,'Profº Odelar Leite Linhares','Brasil','Cálculo'),(31,'Régua de Cálculo LUPA 4058',0,'IEE/USP','Estados Unidos','Cálculo'$);
+/*!40000 ALTER TABLE `equipamento` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `login`
+--
+
+DROP TABLE IF EXISTS `login`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `login` (
+  `ID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `usuario` varchar(45) NOT NULL,
+  `senha` varchar(45) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `login`
+--
+
+LOCK TABLES `login` WRITE;
+/*!40000 ALTER TABLE `login` DISABLE KEYS */;
+INSERT INTO `login` VALUES (1,'renato','123'),(2,'gabi','456');
+/*!40000 ALTER TABLE `login` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2014-07-28 20:24:21
