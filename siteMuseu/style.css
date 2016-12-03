@@ -382,14 +382,14 @@ li p, .art-postcontent li p, .art-blockcontent li p
 
 .art-object1370024518
 {
-    display: block;
+  display: block;
     left: 0%;
     margin-left: -85px;
     position: absolute;
     top: -106px;
     width: 1163px;
     height: 548px;
-    background-image: url('images/object1370024518.png');
+    /*background-image: url('images/object1370024518.png');*/
     background-position: 0 0;
     background-repeat: no-repeat;
     z-index: 1;
@@ -407,16 +407,35 @@ li p, .art-postcontent li p, .art-blockcontent li p
 .ie7 .art-post .art-layout-cell {border:none !important; padding:0 !important; }
 .ie6 .art-post .art-layout-cell {border:none !important; padding:0 !important; }
 
+
+
+
+.imageSlides
+{
+   
+
+display: block;    
+    margin-left: 20%;
+    position: absolute;
+    width: 60%;
+    height: 99.9%;    
+    z-index: 2;
+	
+}
+
+
 .art-header
 {
    margin:0 auto;
    position:relative;
-   height: 350px;
+   height: 470px;
    background-image: url('images/header.jpg');
+
+
    background-position: center top;
    background-repeat: no-repeat;
+   z-index:1;
 }
-
 .responsive .art-header 
 {
    background-image: url('images/header.jpg');
