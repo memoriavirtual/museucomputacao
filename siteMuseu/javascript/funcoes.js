@@ -34,7 +34,7 @@ function slide7() {
 
 
 function slidePrincipal1() {
-	document.getElementById('id').src = "../images/ImagensSlides/slideIMG_00660.jpg";
+	document.getElementById('id').src = "images/ImagensSlides/slideIMG_00660.jpg";
 	setTimeout("slidePrincipal2()", 1000);
 }
 
