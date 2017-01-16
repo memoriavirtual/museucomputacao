@@ -29,8 +29,21 @@ function slide6() {
 }
 function slide7() {
 	document.getElementById('id').src = "../images/ImagensSlides/slideIMG_00666.jpg";
+	setTimeout("slide8()", 2000);
+}
+function slide8() {
+	document.getElementById('id').src = "../images/ImagensSlides/slideIMG_00667.jpg";
+	setTimeout("slide9()", 2000);
+}
+function slide9() {
+	document.getElementById('id').src = "../images/ImagensSlides/slideIMG_00668.jpg";
+	setTimeout("slide10()", 2000);
+}
+function slide10() {
+	document.getElementById('id').src = "../images/ImagensSlides/slideIMG_00669.jpg";
 	setTimeout("slide1()", 2000);
 }
+
 
 
 function slidePrincipal1() {
@@ -59,8 +72,22 @@ function slidePrincipal6() {
 	document.getElementById('id').src = "images/ImagensSlides/slideIMG_00665.jpg";
 	setTimeout("slidePrincipal7()", 2000);
 }
-function slidePrincipal7(){
+
+function slidePrincipal7() {
 	document.getElementById('id').src = "images/ImagensSlides/slideIMG_00666.jpg";
+	setTimeout("slidePrincipal8()", 2000);
+}
+function slidePrincipal8() {
+	document.getElementById('id').src = "images/ImagensSlides/slideIMG_00667.jpg";
+	setTimeout("slidePrincipal9()", 2000);
+}
+function slidePrincipal9() {
+	document.getElementById('id').src = "images/ImagensSlides/slideIMG_00668.jpg";
+	setTimeout("slidePrincipal10()", 2000);
+}
+function slidePrincipal10() {
+	document.getElementById('id').src = "images/ImagensSlides/slideIMG_00669.jpg";
 	setTimeout("slidePrincipal1()", 2000);
 }
+
 
