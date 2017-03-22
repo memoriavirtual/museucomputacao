@@ -901,6 +901,12 @@ ul.art-hmenu ul
 .art-content-layout-row 
 {
    display: table-row;
+   
+}
+.form-group
+{
+	
+
 }
 
 .art-layout-cell
@@ -2656,6 +2662,8 @@ blockquote p,
 				border: none !important;
 				padding: 0 !important;
 			}
+			
+	
 
 
 /* Begin Additional CSS Styles */
