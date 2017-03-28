@@ -2663,9 +2663,23 @@ blockquote p,
 				padding: 0 !important;
 			}
 			
+			
 	
 
 
 /* Begin Additional CSS Styles */
 .art-blockheader .t, .art-vmenublockheader .t {white-space: nowrap;}
 /* End Additional CSS Styles */
+.corFonte
+{
+	color: rgb(158, 34, 54); 
+	font-family: Verdana; 
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 19px;
+	white-space: pre-wrap;
+}
+.corFonteTexto
+{
+	color: rgb(121, 128, 139); font-family: Verdana; line-height: 18px; white-space: pre-wrap;
+}
