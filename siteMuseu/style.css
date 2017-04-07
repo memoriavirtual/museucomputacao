@@ -2679,4 +2679,5 @@ blockquote p,
 .corFonteTexto
 {
 	color: rgb(121, 128, 139); font-family: Verdana; line-height: 18px; white-space: pre-wrap;
+	font-size: 15px;
 }
