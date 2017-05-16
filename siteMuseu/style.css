@@ -1117,10 +1117,10 @@ input, select, textarea, a.art-search-button span
    width:96%;
 }
 
-input.art-button
+/*input.art-button
 {
    float: none !important;
-}
+}*/
 
 .art-button.active, .art-button.active:hover
 {
@@ -1163,7 +1163,7 @@ input.art-button
 .art-button.hover, .art-button:hover {
    color: #0F1724 !important;
 }
-
+/*
 input[type="text"], input[type="password"], input[type="email"], input[type="url"], textarea
 {
    background: #F9FAFB;
@@ -1186,7 +1186,7 @@ input[type="text"], input[type="password"], input[type="email"], input[type="url
    font-weight: normal;
    font-style: normal;
    text-shadow: none;
-}
+}*/
 input.art-error, textarea.art-error
 {
    background: #F9FAFB;
@@ -2681,3 +2681,83 @@ blockquote p,
 	color: rgb(121, 128, 139); font-family: Verdana; line-height: 18px; white-space: pre-wrap;
 	font-size: 15px;
 }
+
+
+
+.sectionImagens{
+		
+	width: 100%;
+	height:100%;
+	
+}
+
+
+.sectionImagens article {
+	
+display: inline-block;
+text-align: center;
+	
+}
+div.divImagens p
+{
+
+	
+}
+section.sectionImagens img {
+	
+	float:left;
+	width: 250px;
+	height:250px;
+	box-shadow: 1px 1px 10px 2px black;
+	margin: 40px;
+	margin-top: 40px;
+	
+}
+
+.store_items article
+{
+	/* TODO: fazer o nro de itens por linha mudar
+	 * conforme redimensiona a janela
+	 */
+
+	display: inline-block;
+	text-align: center;
+}
+
+.formatoBotao
+{
+	background-color: #e7e7e7;
+	border-radius: 5px;
+}
+#posArticle
+{
+display: block;
+right: 20px;
+
+}
+
+#divBusca
+{
+	display:inline-block;
+	width: 30%
+	height: 30%;
+	border-radius: 5px;
+	border-color: #e7e7e7;
+	border-style: solid;
+	
+
+
+	
+}
+#posiPesquisaimg
+{
+	width: 18px;
+	height: 18px;
+	
+}
+#inputvalue{
+	    border: 0 none;
+	    
+}
+
+

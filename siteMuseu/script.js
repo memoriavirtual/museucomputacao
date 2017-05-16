@@ -2,6 +2,12 @@
 /*jshint forin:true, noarg:true, noempty:true, eqeqeq:true, bitwise:true, strict:true, undef:true, curly:false, browser:true, jquery:false */
 /*global jQuery BackgroundHelper */
 
+var meuJSON;
+var nomeBusca;
+var rootURL;
+var vetoridfotos = new Array(40);
+var idImagens = 0;
+
 // css helper
 (function ($) {
     'use strict';
@@ -1227,3 +1233,97 @@ var processHeaderMultipleBg = (function ($) {
         header.css('background-position', "center top");
     });
 })(jQuery);
+
+
+
+
+function getValue() {
+
+}
+
+function findAll() {
+	var i = 0;
+
+	nomeBusca = document.getElementById('inputvalue').value;
+	rootURL = "http://localhost:8080/memoriavirtualWebService/rest/buscar/" + nomeBusca + "/1";
+
+	$.ajax({
+		type : 'GET',
+		dataType : 'json',
+		data : {
+
+		},
+		url : rootURL,
+		headers : {
+			'Authorization' : 'bXZpcnR1YWw6bXZpcnR1YWw=',
+			'Accept' : 'application/json',
+			'Access-Control-Allow-Origin': 'http://143.107.231.114 http://mc.icmc.usp.br/'
+
+		},
+		success : function(retorno) {
+			if (retorno.length == 0)
+				alert("Não existem peças no acervo com esse nome");
+			for ( i = 0; i < retorno.length; i++) {
+
+				if (retorno[i].instituicao.nome == "Museu da Computação ICMC") {// para mostrar os que estao relacionados com o museu.
+					//alert(retorno[i].tituloPrincipal);
+					buscaImagem(retorno[i].id, retorno[i].tituloPrincipal);
+
+				} else {
+					alert("Não existe nenhuma peça no acervo com o nome " + nomeBusca);
+					i = retorno.length;
+				}
+			}
+		},
+		error : function() {
+			alert("falhou!!");
+		}
+	});
+
+}
+
+function buscaImagem(idfoto, nomePeca) {
+	var i = 0;
+
+	rootimagenURL = "http://localhost:8080/memoriavirtualWebService/rest/buscar/" + idfoto;
+
+	$.ajax({// para buscar as imagens
+		type : 'GET',
+		dataType : 'json',
+		data : {
+
+		},
+
+		url : rootimagenURL,
+		headers : {
+			'Authorization' : 'bXZpcnR1YWw6bXZpcnR1YWw=',
+			'Accept' : 'application/json'
+
+		},
+		success : function(retorno) {
+			
+			var stringNome = document.createElement("article");
+			stringNome.id = "article"+idImagens;	
+			document.getElementById("sectionImagens").appendChild(stringNome);
+						
+			stringNome = document.createElement("h4");
+			var node = document.createTextNode(nomePeca);
+			stringNome.appendChild(node);
+			document.getElementById("article"+idImagens).appendChild(stringNome);
+			
+			var para = document.createElement("img");
+			/*para a imagem*/
+			para.src = "data:image/jpg;base64," + retorno[0].content;
+			para.className = "imagemBanco";
+
+			/*fim da imagem*/
+			document.getElementById("article"+idImagens).appendChild(para);
+			idImagens++;
+
+		},
+		error : function() {
+			alert("falhou!!");
+		}
+	});
+
+}
