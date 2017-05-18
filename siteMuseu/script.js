@@ -8,6 +8,10 @@ var rootURL;
 var vetoridfotos = new Array(40);
 var idImagens = 0;
 
+var tamPagina = 100; //tamanho das paginas
+var numeroPagina = 1;
+var numeroPaginaLocal;
+
 // css helper
 (function ($) {
     'use strict';
@@ -1242,11 +1246,19 @@ function getValue() {
 }
 
 function findAll() {
+	
+	numeroPaginaLocal = numeroPagina;
+	buscaPecaAcervo(numeroPagina);	
+	
+}
+
+
+function  buscaPecaAcervo(numeroPagina){
+	
+	
 	var i = 0;
-
 	nomeBusca = document.getElementById('inputvalue').value;
-	rootURL = "http://localhost:8080/memoriavirtualWebService/rest/buscar/" + nomeBusca + "/1";
-
+	rootURL = "http://143.107.183.133:8080/memoriavirtualWebService/rest/buscar/" + nomeBusca + "/"+numeroPagina;
 	$.ajax({
 		type : 'GET',
 		dataType : 'json',
@@ -1256,36 +1268,45 @@ function findAll() {
 		url : rootURL,
 		headers : {
 			'Authorization' : 'bXZpcnR1YWw6bXZpcnR1YWw=',
-			'Accept' : 'application/json',
-			'Access-Control-Allow-Origin': 'http://143.107.231.114 http://mc.icmc.usp.br/'
+			'Accept' : 'application/json'
+			//'Access-Control-Allow-Origin': 'http://143.107.231.114'
 
 		},
-		success : function(retorno) {
-			if (retorno.length == 0)
+		success : function(retorno){
+			
+			if (retorno.length == 20)
+			{
+					numeroPaginaLocal++;
+					buscaPecaAcervo(numeroPaginaLocal);						
+					
+			}
+			if (retorno.length == 0){ 
 				alert("Não existem peças no acervo com esse nome");
+			}
 			for ( i = 0; i < retorno.length; i++) {
 
-				if (retorno[i].instituicao.nome == "Museu da Computação ICMC") {// para mostrar os que estao relacionados com o museu.
+		//		if (retorno[i].instituicao.nome == "Museu da Computação ICMC"){// para mostrar os que estao relacionados com o museu.
 					//alert(retorno[i].tituloPrincipal);
 					buscaImagem(retorno[i].id, retorno[i].tituloPrincipal);
 
-				} else {
-					alert("Não existe nenhuma peça no acervo com o nome " + nomeBusca);
-					i = retorno.length;
-				}
+//				} 
+				
 			}
 		},
 		error : function() {
 			alert("falhou!!");
+			 
 		}
 	});
 
+	
+	
 }
 
 function buscaImagem(idfoto, nomePeca) {
 	var i = 0;
-
-	rootimagenURL = "http://localhost:8080/memoriavirtualWebService/rest/buscar/" + idfoto;
+	
+	rootimagenURL = "http://143.107.183.133:8080/memoriavirtualWebService/rest/buscar/" + idfoto;
 
 	$.ajax({// para buscar as imagens
 		type : 'GET',
@@ -1302,23 +1323,27 @@ function buscaImagem(idfoto, nomePeca) {
 		},
 		success : function(retorno) {
 			
-			var stringNome = document.createElement("article");
-			stringNome.id = "article"+idImagens;	
-			document.getElementById("sectionImagens").appendChild(stringNome);
+			if (retorno[0].content) // trata o caso em que não existem imagens.
+			{
+				var stringNome = document.createElement("article");
+				stringNome.id = "article"+idImagens;	
+				document.getElementById("sectionImagens").appendChild(stringNome);
 						
-			stringNome = document.createElement("h4");
-			var node = document.createTextNode(nomePeca);
-			stringNome.appendChild(node);
-			document.getElementById("article"+idImagens).appendChild(stringNome);
+				stringNome = document.createElement("h4");
+				var node = document.createTextNode(nomePeca);
+				stringNome.appendChild(node);
+				document.getElementById("article"+idImagens).appendChild(stringNome);
 			
-			var para = document.createElement("img");
-			/*para a imagem*/
-			para.src = "data:image/jpg;base64," + retorno[0].content;
-			para.className = "imagemBanco";
+				var para = document.createElement("img");
+				/*para a imagem*/
+			
+				para.src = "data:image/jpg;base64," + retorno[0].content;
+				para.className = "imagemBanco";
 
-			/*fim da imagem*/
-			document.getElementById("article"+idImagens).appendChild(para);
-			idImagens++;
+				/*fim da imagem*/
+				document.getElementById("article"+idImagens).appendChild(para);
+				idImagens++;
+			}
 
 		},
 		error : function() {
