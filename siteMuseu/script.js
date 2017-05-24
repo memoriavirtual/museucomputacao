@@ -1423,3 +1423,5 @@ function buscaImagem(idfoto, nomePeca) {
 	});
 
 }
+
+

@@ -1,4 +1,4 @@
-/* Created by Artisteer v4.1.0.59861 */
+
 
 #art-main
 {
@@ -759,7 +759,7 @@ ul.art-hmenu ul:before
    content: ' ';
    z-index: 1;
 }
-.desktop ul.art-hmenu li:hover>ul {
+ul.art-hmenu li:hover>ul {
    visibility: visible;
    top: 100%;
 }
