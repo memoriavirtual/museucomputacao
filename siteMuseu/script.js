@@ -1394,8 +1394,8 @@ function buscaImagem(idfoto, nomePeca) {
 		},
 		success : function(retorno) {
 
-			if (retorno[0].content)// trata o caso em que não existem imagens.
-			{
+		//	if (retorno[0].content)// trata o caso em que não existem imagens.
+			//{
 				var stringNome = document.createElement("article");
 				stringNome.id = "article" + idImagens;
 				document.getElementById("sectionImagens").appendChild(stringNome);
@@ -1414,7 +1414,8 @@ function buscaImagem(idfoto, nomePeca) {
 				/*fim da imagem*/
 				document.getElementById("article" + idImagens).appendChild(para);
 				idImagens++;
-			}
+			//}
+			
 
 		},
 		error : function() {
