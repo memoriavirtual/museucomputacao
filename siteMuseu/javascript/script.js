@@ -1415,7 +1415,6 @@ function buscaImagem(idfoto, nomePeca) {
 				document.getElementById("article" + idImagens).appendChild(para);
 				idImagens++;
 			}
-			
 
 		},
 		error : function() {
@@ -1424,5 +1423,4 @@ function buscaImagem(idfoto, nomePeca) {
 	});
 
 }
-
 
