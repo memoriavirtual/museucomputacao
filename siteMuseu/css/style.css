@@ -1776,7 +1776,7 @@ pre
    background: #9E2236;
    margin:0 auto;
    position:relative;
-   z-index:1;
+  
    padding: 1px;
    margin-bottom: 5px;
 }
@@ -2731,8 +2731,11 @@ section.sectionImagens img {
 }
 #posArticle
 {
+
+position:relative;
 display: block;
-right: 20px;
+left: 30px;	
+
 
 }
 
@@ -2749,6 +2752,7 @@ right: 20px;
 
 	
 }
+
 #posiPesquisaimg
 {
 	width: 18px;
@@ -2759,5 +2763,6 @@ right: 20px;
 	    border: 0 none;
 	    
 }
+
 
 
