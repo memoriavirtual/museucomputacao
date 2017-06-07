@@ -1,4 +1,4 @@
-var idAnterior = "000"// nenhum id no inicio
+var idAnterior = "#mainMuseu"// nenhum id no inicio
 
 $(document).ready(function() {
 

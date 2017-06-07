@@ -600,21 +600,7 @@ jQuery(function($) {
 		}
 	}
 });
-/**
- * @license
- * jQuery Tools 1.2.6 Mousewheel
- *
- * NO COPYRIGHTS OR LICENSES. DO WHAT YOU LIKE.
- *
- * http://flowplayer.org/tools/toolbox/mousewheel.html
- *
- * based on jquery.event.wheel.js ~ rev 1 ~
- * Copyright (c) 2008, Three Dub Media
- * http://threedubmedia.com
- *
- * Since: Mar 2010
- * Date:
- */
+
 (function($) {
 	'use strict';
 	$.fn.mousewheel = function(fn) {
