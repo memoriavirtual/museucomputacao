@@ -633,6 +633,12 @@ ul.art-hmenu>li>a.active
    text-decoration: none;
 }
 
+ul.art-hmenu>li>a.voltaMenuBranco
+{
+   color: white;   
+}
+
+
 ul.art-hmenu>li>a:visited, 
 ul.art-hmenu>li>a:hover, 
 ul.art-hmenu>li:hover>a {
@@ -2678,7 +2684,10 @@ blockquote p,
 }
 .corFonteTexto
 {
-	color: rgb(121, 128, 139); font-family: Verdana; line-height: 18px; white-space: pre-wrap;
+	color: rgb(121, 128, 139);
+	font-family: Verdana;
+	line-height: 18px; 
+	white-space: pre-wrap;
 	font-size: 15px;
 }
 
