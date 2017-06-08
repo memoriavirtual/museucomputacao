@@ -1303,12 +1303,17 @@ var processHeaderMultipleBg = (function($) {
 	});
 })(jQuery);
 
-function getValue() {
-
+function apagaImagAnt() {
+	var elemento = document.getElementById("sectionImagens");
+	while (elemento.firstChild) {
+		elemento.removeChild(elemento.firstChild);
+	}
 }
 
 function findAll() {
-
+	idImagens = 0;
+	//para uma nova pesquisa
+	apagaImagAnt();
 	numeroPaginaLocal = numeroPagina;
 	buscaPecaAcervo(numeroPagina);
 
@@ -1410,3 +1415,11 @@ function buscaImagem(idfoto, nomePeca) {
 
 }
 
+function googleMaps() {
+	var mapOptions = {
+		center : new google.maps.LatLng(-22.006956, -47.894932),
+		zoom : 100,
+		mapTypeId : google.maps.MapTypeId.HYBRID
+	}
+	var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+}
