@@ -1073,7 +1073,6 @@ a:link.art-button:link,
 body a.art-button:link,
 a.art-button:visited,
 body a.art-button:visited,
-input.art-button,
 button.art-button
 {
    text-decoration: none;
@@ -1109,7 +1108,7 @@ button.art-button
    float: left;
 }
 
-input, select, textarea, a.art-search-button span
+select, textarea, a.art-search-button span
 {
    vertical-align: middle;
    font-size: 14px;
@@ -2750,14 +2749,10 @@ left: 30px;
 #divBusca
 {
 	display:inline-block;
-	width: 30%
-	height: 30%;
-	border-radius: 5px;
+
+	border-radius: 4px;
 	border-color: #e7e7e7;
 	border-style: solid;
-	
-
-
 	
 }
 
@@ -2765,18 +2760,16 @@ left: 30px;
 {
 	width: 18px;
 	height: 18px;
+	margin: -2px; 
+	top 4px;
 	
 }
 #inputvalue{
+	top: -5px;
 	    border: 0 none;
 	    
 }
-/*
-body{
-    width: 414px;
-    font-family: Arial;
-	font-size: 14px;
-}*/
+
 #after_submit, #email_validation, #name_validation {
     display:none;
 }
@@ -2795,11 +2788,11 @@ label, #after_submit{
 	color: #6c6c6c;
 }
 
-input{
-    line-height: 31px;
-}
+input{ /*Largura do Botão*/
+    line-height: 28px;
+} 
 
-input, textarea{
+#contact_form input[type = "text"], #contact_form textarea{
     width: 288px;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
