@@ -37,31 +37,37 @@
 							<div class="art-content-layout">
 								<div class="art-content-layout-row">
 									<div class="art-layout-cell" >
-										<div class="form-group">
-											<label for="usr">Name:</label>
-											&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-											<input type="text" class="form-control" id="nameFormulario">
-										</div>
-										<br />
-										<div class="form-group">
-											<label for="usr">Email:</label>
-											&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-											<input type="text" class="form-control" id="emailFormulario"/>
-										</div>
-										<br />
-										<div class="form-group">
-											<label for="usr">Assunto:</label>
-											&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-											<input type="text" class="form-control" id="assuntoFormulario"/>
-										</div>
-										<br />
-										<div class="form-group">
-											<label for="comment">Mensagem:</label>
-											&nbsp; &nbsp;&nbsp; &nbsp; 											<textarea class="form-control" rows="10"  id="messagemFormulario"></textarea>
-										</div>
+										<div id="after_submit"></div>
+										<form id="contact_form" action="#" method="POST" enctype="multipart/form-data">
+											<div class="row">
+												<label class="required" for="name">Nome:</label>
+												<br />
+												<input id="name" class="input" name="name" type="text" value="" size="30" />
+												<br />
+												<span id="name_validation" class="error_message"></span>
+											</div>
+											<div class="row">
+												<label class="required" for="email">Email:</label>
+												<br />
+												<input id="email" class="input" name="email" type="text" value="" size="30" />
+												<br />
+												<span id="email_validation" class="error_message"></span>
+											</div>
+											<div class="row">
+												<label class="required" for="message">Mensagem:</label>
+												<br />
+												<textarea id="message" class="input" name="message" rows="7" cols="30"></textarea>
+												<br />
+												<span id="message_validation" class="error_message"></span>
+											</div>
+											<div class="row">
+												<input id="enviaEmail" type="button" value="enviar" />
+											</div>
+										</form>
 									</div>
 								</div>
 							</div>
+
 						</div>
 
 					</article>

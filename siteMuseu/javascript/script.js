@@ -1416,10 +1416,17 @@ function buscaImagem(idfoto, nomePeca) {
 }
 
 function googleMaps() {
-	var mapOptions = {
-		center : new google.maps.LatLng(-22.006956, -47.894932),
-		zoom : 100,
-		mapTypeId : google.maps.MapTypeId.HYBRID
-	}
-	var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+	var mapa =  {lat:-22.006956, lng: -47.894932 };
+	map = new google.maps.Map(document.getElementById('map'),{
+		zoom : 16,
+		center: mapa,
+		mapTypeId : google.maps.MapTypeId.TERRAIN
+	});
+	var market = new google.maps.Marker({
+		position : mapa,
+		title: "Museu de Computação - Prof.Odelar Leite Linhares",
+		map: map,
+		icon: 'images/mapsIcone.png'
+	});
 }
+

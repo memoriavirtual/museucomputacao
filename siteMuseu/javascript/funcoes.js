@@ -1,4 +1,4 @@
-var quantImg = 19;
+var quantImg = 26;
 var i = 0;
 // quantidade de imagem que deseja exibir;
 
