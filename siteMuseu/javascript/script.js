@@ -1303,6 +1303,11 @@ var processHeaderMultipleBg = (function($) {
 	});
 })(jQuery);
 
+function chamaDescricao() {
+	//alert(descricaoPeca);
+	document.getElementById("myDialog").showModal();
+}
+
 function apagaImagAnt() {
 	var elemento = document.getElementById("sectionImagens");
 	while (elemento.firstChild) {
@@ -1351,7 +1356,7 @@ function buscaPecaAcervo(numeroPagina) {
 
 				if (retorno[i].instituicao.nome == "Museu da Computação ICMC") {// para mostrar os que estao relacionados com o museu.
 					//alert(retorno[i].tituloPrincipal);
-					buscaImagem(retorno[i].id, retorno[i].tituloPrincipal);
+					buscaImagem(retorno[i].id, retorno[i].tituloPrincipal, retorno[i].caracteristicasFisicasTecnicasExecutivas);
 
 				}
 
@@ -1365,7 +1370,7 @@ function buscaPecaAcervo(numeroPagina) {
 
 }
 
-function buscaImagem(idfoto, nomePeca) {
+function buscaImagem(idfoto, nomePeca, descricaoPeca) {
 	var i = 0;
 
 	rootimagenURL = "http://143.107.183.133:8080/memoriavirtualWebService/rest/buscar/" + idfoto;
@@ -1384,8 +1389,10 @@ function buscaImagem(idfoto, nomePeca) {
 
 		},
 		success : function(retorno) {
+			//for(l = 0;  l < retorno.length; l++){ // caso queira mostra mais de uma foto da mesma peça
+			//	for(l = 0;  l < 1; l++){ // caso queira mostra mais de uma foto da mesma peça
 
-			if (retorno[0].content)// trata o caso em que não existem imagens.
+			if (retorno[0].content != " ")// trata o caso em que não existem imagens.
 			{
 				var stringNome = document.createElement("article");
 				stringNome.id = "article" + idImagens;
@@ -1393,19 +1400,37 @@ function buscaImagem(idfoto, nomePeca) {
 
 				stringNome = document.createElement("h4");
 				var node = document.createTextNode(nomePeca);
+				stringNome.className = "corFonte";
 				stringNome.appendChild(node);
 				document.getElementById("article" + idImagens).appendChild(stringNome);
 
+				/* */
+				var descricaoPec = document.createElement("a");
+				descricaoPec.href = "#";
+				descricaoPec.onclick = function() {
+					alert(descricaoPeca);
+					document.getElementById("myDialog").showModal();
+				};
+
 				var para = document.createElement("img");
-				/*para a imagem*/
 
 				para.src = "data:image/jpg;base64," + retorno[0].content;
 				para.className = "imagemBanco";
 
+				descricaoPec.appendChild(para);
+				// coloca img como filha de a
+				document.getElementById("article" + idImagens).appendChild(descricaoPec);
+				/*<a
+				href = "#" onclick="myFunction()"><img src="images/IMG_0074.jpg"></
+				a >*/
+
+				/*para a imagem*/
+
 				/*fim da imagem*/
-				document.getElementById("article" + idImagens).appendChild(para);
+				//document.getElementById("article" + idImagens).appendChild(para);
 				idImagens++;
 			}
+			//}
 
 		},
 		error : function() {
@@ -1416,17 +1441,20 @@ function buscaImagem(idfoto, nomePeca) {
 }
 
 function googleMaps() {
-	var mapa =  {lat:-22.006956, lng: -47.894932 };
-	map = new google.maps.Map(document.getElementById('map'),{
+	var mapa = {
+		lat : -22.006956,
+		lng : -47.894932
+	};
+	map = new google.maps.Map(document.getElementById('map'), {
 		zoom : 16,
-		center: mapa,
+		center : mapa,
 		mapTypeId : google.maps.MapTypeId.TERRAIN
 	});
 	var market = new google.maps.Marker({
 		position : mapa,
-		title: "Museu de Computação - Prof.Odelar Leite Linhares",
-		map: map,
-		icon: 'images/mapsIcone.png'
+		title : "Museu de Computação - Prof.Odelar Leite Linhares",
+		map : map,
+		icon : 'images/mapsIcone.png'
 	});
 }
 

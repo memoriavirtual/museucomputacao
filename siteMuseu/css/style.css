@@ -2712,7 +2712,7 @@ div.divImagens p
 }
 section.sectionImagens img {
 	
-	float:left;
+	
 	width: 250px;
 	height:250px;
 	box-shadow: 1px 1px 10px 2px black;
@@ -2845,3 +2845,7 @@ label.required:after {
   margin:5px;
 }
 
+#teste22{
+    border:none!important;
+    background-color: white!important;
+}

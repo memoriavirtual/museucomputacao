@@ -109,9 +109,8 @@ $(document).ready(function() {
 		$("#acervoMain").removeClass("voltaMenuBranco");
 		$("#acervoMain").addClass("active");
 		idAnterior = "#acervoMain";
-		
+
 	});
-	
-	
+
 
 });
