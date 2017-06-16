@@ -1405,24 +1405,25 @@ function buscaImagem(idfoto, nomePeca, descricaoPeca) {
 				document.getElementById("article" + idImagens).appendChild(stringNome);
 
 				/* */
-				var descricaoPec = document.createElement("a");
-				descricaoPec.href = "#";
-				descricaoPec.onclick = function() {
-					alert(descricaoPeca);
-					document.getElementById("myDialog").showModal();
-				};
 
 				var para = document.createElement("img");
 
 				para.src = "data:image/jpg;base64," + retorno[0].content;
 				para.className = "imagemBanco";
 
+				var descricaoPec = document.createElement("a");
+				descricaoPec.href = "#";
+				descricaoPec.onclick = function() {
+					//alert(descricaoPeca);
+
+					telaDialogo(descricaoPeca, retorno[0].content);
+					// função para exibir dialogo
+
+				};
+
 				descricaoPec.appendChild(para);
 				// coloca img como filha de a
 				document.getElementById("article" + idImagens).appendChild(descricaoPec);
-				/*<a
-				href = "#" onclick="myFunction()"><img src="images/IMG_0074.jpg"></
-				a >*/
 
 				/*para a imagem*/
 
@@ -1458,3 +1459,21 @@ function googleMaps() {
 	});
 }
 
+function telaDialogo(descricaoPeca, imagem) {
+	//alert(descricaoPeca);
+
+	var para = document.createElement("img");
+	
+	para.src = "data:image/jpg;base64," + imagem;
+	para.className = "imagemBanco";
+	
+	var paragrafo = document.createElement("p");
+	// paragrafo para o texto da descrição
+	var node = document.createTextNode(descricaoPeca);
+	paragrafo.appendChild(node);
+	
+	document.getElementById("myDialog").appendChild(para);
+	document.getElementById("myDialog").appendChild(paragrafo);
+
+	document.getElementById("myDialog").showModal();
+}

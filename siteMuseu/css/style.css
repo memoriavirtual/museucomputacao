@@ -2845,7 +2845,17 @@ label.required:after {
   margin:5px;
 }
 
-#teste22{
+ .dialogo {
+ 	
     border:none!important;
     background-color: white!important;
+    overflow: auto;
+    width: 50%;
+    height: 100%;
+}
+
+dialog img
+{
+	width: 70%;
+	height: 70%;
 }
