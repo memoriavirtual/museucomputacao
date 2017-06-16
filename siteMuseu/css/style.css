@@ -1122,10 +1122,6 @@ select, textarea, a.art-search-button span
    width:96%;
 }
 
-/*input.art-button
-{
-   float: none !important;
-}*/
 
 .art-button.active, .art-button.active:hover
 {
@@ -2735,7 +2731,10 @@ section.sectionImagens img {
 {
 	background-color: #e7e7e7;
 	border-radius: 5px;
+
 }
+
+
 #posArticle
 {
 
@@ -2848,14 +2847,20 @@ label.required:after {
  .dialogo {
  	
     border:none!important;
-    background-color: white!important;
+    background-color: #FCFCFC!important;
     overflow: auto;
     width: 50%;
-    height: 100%;
+    height: 130%;
+    
 }
 
 dialog img
 {
 	width: 70%;
-	height: 70%;
+	height: 50%;
+}
+#myDialog button
+{
+	
+	margin-left: 45%;
 }

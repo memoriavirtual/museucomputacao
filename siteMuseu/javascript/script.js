@@ -1308,8 +1308,8 @@ function chamaDescricao() {
 	document.getElementById("myDialog").showModal();
 }
 
-function apagaImagAnt() {
-	var elemento = document.getElementById("sectionImagens");
+function apagaFilhoNoDom(id_elemento) {
+	var elemento = document.getElementById(id_elemento);
 	while (elemento.firstChild) {
 		elemento.removeChild(elemento.firstChild);
 	}
@@ -1318,7 +1318,7 @@ function apagaImagAnt() {
 function findAll() {
 	idImagens = 0;
 	//para uma nova pesquisa
-	apagaImagAnt();
+	apagaFilhoNoDom("sectionImagens");
 	numeroPaginaLocal = numeroPagina;
 	buscaPecaAcervo(numeroPagina);
 
@@ -1414,9 +1414,8 @@ function buscaImagem(idfoto, nomePeca, descricaoPeca) {
 				var descricaoPec = document.createElement("a");
 				descricaoPec.href = "#";
 				descricaoPec.onclick = function() {
-					//alert(descricaoPeca);
 
-					telaDialogo(descricaoPeca, retorno[0].content);
+					telaDialogo(descricaoPeca, retorno[0].content, nomePeca);
 					// função para exibir dialogo
 
 				};
@@ -1459,21 +1458,47 @@ function googleMaps() {
 	});
 }
 
-function telaDialogo(descricaoPeca, imagem) {
+function telaDialogo(descricaoPeca, imagem, nomePeca) {
 	//alert(descricaoPeca);
 
 	var para = document.createElement("img");
-	
+	var botaoFechar = document.createElement("button");
+	botaoFechar.className = "formatoBotao";
+	var espaco = document.createElement("br");
+	var node = document.createTextNode("Fechar");
+
+	botaoFechar.appendChild(node);
+
+	botaoFechar.onclick = function() {
+		fechaDialogo();
+		// funcao para fechar o dialogo
+
+	};
+
 	para.src = "data:image/jpg;base64," + imagem;
 	para.className = "imagemBanco";
-	
+
 	var paragrafo = document.createElement("p");
 	// paragrafo para o texto da descrição
-	var node = document.createTextNode(descricaoPeca);
-	paragrafo.appendChild(node);
 	
+	if ( descricaoPeca == null || descricaoPeca.length < 10) // não possui descrição no memória virtual
+		node = document.createTextNode(nomePeca + " não possui descrição.");
+	else
+		node = document.createTextNode(descricaoPeca);
+
+	paragrafo.appendChild(node);
+
 	document.getElementById("myDialog").appendChild(para);
 	document.getElementById("myDialog").appendChild(paragrafo);
+	document.getElementById("myDialog").appendChild(espaco);
+	document.getElementById("myDialog").appendChild(botaoFechar);
 
 	document.getElementById("myDialog").showModal();
+}
+
+function fechaDialogo() {
+
+	apagaFilhoNoDom("myDialog");
+	document.getElementById("myDialog").close();
+
 }
