@@ -1362,6 +1362,12 @@ function buscaPecaAcervo(numeroPagina) {
 
 			}
 		},
+		beforeSend : function() {/* antes de enviar */
+			$('.loading').fadeIn('low');
+		},
+		complete : function() {/* completo */
+			$('.loading').fadeOut('low');
+		},
 		error : function() {
 			alert("falhou!!");
 
@@ -1387,6 +1393,12 @@ function buscaImagem(idfoto, nomePeca, descricaoPeca) {
 			'Authorization' : 'bXZpcnR1YWw6bXZpcnR1YWw=',
 			'Accept' : 'application/json'
 
+		},
+		beforeSend : function() {/* antes de enviar */
+			$('.loading').fadeIn('fast');
+		},
+		complete : function() {/* completo */
+			$('.loading').fadeOut('low');
 		},
 		success : function(retorno) {
 			//for(l = 0;  l < retorno.length; l++){ // caso queira mostra mais de uma foto da mesma peça
@@ -1480,8 +1492,8 @@ function telaDialogo(descricaoPeca, imagem, nomePeca) {
 
 	var paragrafo = document.createElement("p");
 	// paragrafo para o texto da descrição
-	
-	if ( descricaoPeca == null || descricaoPeca.length < 10) // não possui descrição no memória virtual
+
+	if (descricaoPeca == null || descricaoPeca.length < 10)// não possui descrição no memória virtual
 		node = document.createTextNode(nomePeca + " não possui descrição.");
 	else
 		node = document.createTextNode(descricaoPeca);

@@ -1,0 +1,82 @@
+<!--
+http://vinteum.com
+tiago@vinteum.com
+Tutorial AJAX+PHP utilizando protocolo SMTP;
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" type="text/javascript"></script>
+        <script src="jquery.js" type="text/javascript"></script>
+        <title>Enviando e-mail com AJAX e PHP via protocolo SMTP - Vinteum Desenvolvimento</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+         
+    </head>
+    <script>
+        $(document).ready( function(){ //Quando documento estiver pronto
+        $('#btn').click( function(){ /* Quando clicar em #btn */
+        /* Coletando dados */
+        var nome  = $('#nome').val();
+        var email = $('#email').val();
+        var mensagem   = $('#mensagem').val();
+ 
+        /* Validando */
+        if(nome.length <= 3){
+            alert('Informe seu nome');
+            return false;
+        }
+        if(email.length <= 5){
+            alert('Informe seu email');
+            return false;
+        }
+        if(mensagem.length <= 5){
+            alert('Escreva uma mensagem');
+            return false;
+        }
+ 
+        /* construindo url */
+        var urlData = "&nome=" + nome +
+        "&email=" + email +
+        "&mensagem=" + mensagem ;
+        console.log(urlData);
+ 
+        /* Ajax */
+        $.ajax({
+             type: "POST",
+             url: "enviar.php", /* endereço do script PHP */
+             async: true,
+             data: urlData, /* informa Url */
+             success: function(data) { /* sucesso */
+                 $('#retornoHTML').html(data);
+             },
+             beforeSend: function() { /* antes de enviar */
+                 $('.loading').fadeIn('fast'); 
+             },
+             complete: function(){ /* completo */
+                 $('.loading').fadeOut('fast'); //wow!
+             }
+         });
+    });
+});
+    </script>
+    <style>
+            .loading { display: none; }
+        </style>
+    <body>        
+   
+        
+  <div id="retornoHTML">
+            <form>            
+                Nome<br>
+                <input id="nome" maxlength="40" type="text"><br>
+                E-mail<br>
+                <input id="email" maxlength="30" value="" type="text"><br>
+                Mensagem:<br>
+                <textarea cols="50" rows="7" id="mensagem" maxlength="50"></textarea><br>
+                <input type="button" id="btn" value="ENVIAR">
+                <img src="loading.gif" class="loading">
+            </form>
+        </div> 
+                      
+    </body>
+</html>

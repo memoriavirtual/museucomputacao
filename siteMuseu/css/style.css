@@ -2849,8 +2849,8 @@ label.required:after {
     border:none!important;
     background-color: #FCFCFC!important;
     overflow: auto;
-    width: 50%;
-    height: 130%;
+    width: 70%;
+    height: 100%;
     
 }
 
@@ -2858,9 +2858,15 @@ dialog img
 {
 	width: 70%;
 	height: 50%;
+	margin-left: 20%;
 }
 #myDialog button
 {
 	
 	margin-left: 45%;
 }
+.loading {
+	display: none;
+	margin-left: 45%; 
+}
+
