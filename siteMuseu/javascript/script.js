@@ -1453,6 +1453,11 @@ function buscaImagem(idfoto, nomePeca, descricaoPeca) {
 }
 
 function googleMaps() {
+	var lat;
+	var lng;
+	var enderecoChegada;
+	var adress;
+
 	var mapa = {
 		lat : -22.006956,
 		lng : -47.894932
@@ -1468,6 +1473,61 @@ function googleMaps() {
 		map : map,
 		icon : 'images/mapsIcone.png'
 	});
+
+	/*if (navigator.geolocation) {// Se o navegador do usuário tem suporte ao Geolocation
+	 var directionsService = new google.maps.DirectionsService();
+	 var directionsDisplay;
+	 directionsDisplay = new google.maps.DirectionsRenderer(); // Instanciando...
+
+	 navigator.geolocation.getCurrentPosition(function(position) {
+
+	 /*pontoPadrao = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+	 // Com a latitude e longitude que retornam do Geolocation, criamos um LatLng
+	 map.setCenter(pontoPadrao);
+
+	 var geocoder = new google.maps.Geocoder();
+
+	 geocoder.geocode({// Usando nosso velho amigo geocoder, passamos a latitude e longitude do geolocation, para pegarmos o endereço em formato de string
+	 "location" : new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
+	 }, function(results, status) {
+	 if (status == google.maps.GeocoderStatus.OK) {
+	 $("#txtEnderecoPartida").val(results[0].formatted_address);
+	 }
+	 });
+
+	 var latlng = position.coords.latitude + "," + position.coords.longitude;
+	 var pegaEndereco = "maps.googleapis.com/maps/api/geocode/json?latlng=" + latlng + "&sensor=true";
+
+	 $.getJSON(pegaEndereco, function(data) {
+
+	 adress = data.results[0].formatted_address;
+	 alert(adress);
+
+	 });
+
+	 latlng = lat + "," + lng;
+	 pegaEndereco = "maps.googleapis.com/maps/api/geocode/json?latlng=" + latlng + "&sensor=true";
+
+	 $.getJSON(pegaEndereco, function(data) {
+
+	 enderecoChegada = data.results[0].formatted_address;
+	 alert(enderecoChegada);
+
+	 });
+	 });
+	 var request = {// Novo objeto google.maps.DirectionsRequest, contendo:
+	 origin : adress, // origem
+	 destination : enderecoChegada, // destino
+	 travelMode : google.maps.TravelMode.DRIVING // meio de transporte, nesse caso, de carro
+	 };
+
+	 directionsService.route(request, function(result, status) {
+	 if (status == google.maps.DirectionsStatus.OK) {// Se deu tudo certo
+	 directionsDisplay.setDirections(result);
+	 // Renderizamos no mapa o resultado
+	 }
+	 });
+	 }*/
 }
 
 function telaDialogo(descricaoPeca, imagem, nomePeca) {
@@ -1512,5 +1572,55 @@ function fechaDialogo() {
 
 	apagaFilhoNoDom("myDialog");
 	document.getElementById("myDialog").close();
-
 }
+
+
+$(document).ready(function() {//Quando documento estiver pronto
+	
+	
+	$(document).on("click", "input#enviaEmail", function() {
+		/* Coletando dados */
+		
+		var nome = $('#nome').val();
+		var email = $('#email').val();
+		var mensagem = $('#mensagem').val();
+		var telefone = $('#phone').val();
+		
+		/* Validando */
+		if (nome.length <= 3) {
+			alert('Informe seu nome');
+			return false;
+		}
+		if (email.length <= 5) {
+			alert('Informe seu email');
+			return false;
+		}
+		if (mensagem.length <= 5) {
+			alert('Escreva uma mensagem');
+			return false;
+		}
+
+		/* construindo url */
+		var urlData = "&nome=" + nome + "&email=" + email + "&mensagem=" + mensagem + "&telefone=" + telefone ;
+		console.log(urlData);
+
+		/* Ajax */
+		$.ajax({
+			type : "POST",
+			url : "../php/enviar.php", /* endereço do script PHP */
+			async : true,
+			data : urlData, /* informa Url */
+			success : function(data) {/* sucesso */
+				$('#contact_form').html(data);
+			},
+			beforeSend : function() {/* antes de enviar */
+				$('.loading').fadeIn('fast');
+			},
+			complete : function() {/* completo */
+				$('.loading').fadeOut('fast');
+				//wow!
+			}
+		});
+	});
+});
+

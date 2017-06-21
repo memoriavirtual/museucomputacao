@@ -14,7 +14,7 @@
 								<div class="art-content-layout-row">
 									<div class="art-layout-cell" style="width: 100%" >
 										<p>
-											<br>
+											<br />
 										</p>
 									</div>
 								</div>
@@ -37,14 +37,22 @@
 							<div class="art-content-layout">
 								<div class="art-content-layout-row">
 									<div class="art-layout-cell" >
-										<div id="after_submit"></div>
-										<form id="contact_form" action="#" method="POST" enctype="multipart/form-data">
+										<img src="images/loading.gif" class="loading">
+
+										<form id="contact_form">
 											<div class="row">
 												<label class="required" for="name">Nome:</label>
 												<br />
-												<input id="name" class="input" name="name" type="text" value="" size="30" />
+												<input id="nome" class="input" name="name" type="text" value="" size="30" />
 												<br />
 												<span id="name_validation" class="error_message"></span>
+											</div>
+											<div class="row">
+												<label class="required" for="tel">Telefone:</label>
+												<br />
+												<input id="phone" class="input" name="tel" type="tel" value="" size="30" maxlength="14" />
+												<br />
+												<span id="phone" class="error_message"></span>
 											</div>
 											<div class="row">
 												<label class="required" for="email">Email:</label>
@@ -53,10 +61,11 @@
 												<br />
 												<span id="email_validation" class="error_message"></span>
 											</div>
+
 											<div class="row">
 												<label class="required" for="message">Mensagem:</label>
 												<br />
-												<textarea id="message" class="input" name="message" rows="7" cols="30"></textarea>
+												<textarea id="mensagem" class="input" name="message" rows="7" cols="30"></textarea>
 												<br />
 												<span id="message_validation" class="error_message"></span>
 											</div>
