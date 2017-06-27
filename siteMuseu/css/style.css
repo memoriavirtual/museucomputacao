@@ -415,7 +415,6 @@ li p, .art-postcontent li p, .art-blockcontent li p
 .imageSlides
 {
    
-
 	display: block;    
     margin-left: 20%;
     position: absolute;
@@ -2833,6 +2832,21 @@ input{ /*Largura do Botão*/
 }
 }
 
+@media screen and (max-width:2000px) and (min-width: 1380px)
+{
+.imageSlides
+{
+   
+	display: block;    
+    margin-left: 30%;
+    position: absolute;
+    width: 40%;
+    height:100%;    
+    z-index: 2;
+	
+}	
+}
+
 
 
 label.required:after {
@@ -2857,15 +2871,15 @@ label.required:after {
     border:none!important;
     background-color: #FCFCFC!important;
     overflow: auto;
-    width: 70%;
-    height: 100%;
+    width: 50%;
+    height: 70%;
     
 }
 
 dialog img
 {
 	width: 70%;
-	height: 50%;
+	height: 70%;
 	margin-left: 20%;
 }
 #myDialog button
@@ -2876,5 +2890,17 @@ dialog img
 .loading {
 	display: none;
 	margin-left: 45%; 
+}
+
+.imagemBancoDialog{
+	width: 30%;
+	height: 15%;
+	margin-left: 35%;
+}
+
+.paragrafoTexto
+{
+	width: 50%;
+	margin-left: 25%;
 }
 

@@ -1538,6 +1538,7 @@ function telaDialogo(descricaoPeca, imagem, nomePeca) {
 	botaoFechar.className = "formatoBotao";
 	var espaco = document.createElement("br");
 	var node = document.createTextNode("Fechar");
+	var paragrafo = document.createElement("p"); // paragrafo para o texto da descrição
 
 	botaoFechar.appendChild(node);
 
@@ -1548,10 +1549,20 @@ function telaDialogo(descricaoPeca, imagem, nomePeca) {
 	};
 
 	para.src = "data:image/jpg;base64," + imagem;
-	para.className = "imagemBanco";
+	var nav = navigator.userAgent.toLowerCase();
+	// verifica o navegador do usuario;
+	if (nav.indexOf("mozilla") != -1)// para verificar o suporte para o dialog
+	{
+		if (nav.indexOf("firefox") != -1) {
+			para.className = "imagemBancoDialog";
+			paragrafo.className = "paragrafoTexto";
 
-	var paragrafo = document.createElement("p");
-	// paragrafo para o texto da descrição
+		}
+	}
+	
+
+	
+	
 
 	if (descricaoPeca == null || descricaoPeca.length < 10)// não possui descrição no memória virtual
 		node = document.createTextNode(nomePeca + " não possui descrição.");
@@ -1576,16 +1587,18 @@ function fechaDialogo() {
 
 
 $(document).ready(function() {//Quando documento estiver pronto
-	
-	
+
 	$(document).on("click", "input#enviaEmail", function() {
 		/* Coletando dados */
-		
+
 		var nome = $('#nome').val();
 		var email = $('#email').val();
 		var mensagem = $('#mensagem').val();
 		var telefone = $('#phone').val();
-		
+		var file = $('#enviaArquivo').val();
+
+		alert(file);
+
 		/* Validando */
 		if (nome.length <= 3) {
 			alert('Informe seu nome');
@@ -1601,7 +1614,7 @@ $(document).ready(function() {//Quando documento estiver pronto
 		}
 
 		/* construindo url */
-		var urlData = "&nome=" + nome + "&email=" + email + "&mensagem=" + mensagem + "&telefone=" + telefone ;
+		var urlData = "&nome=" + nome + "&email=" + email + "&mensagem=" + mensagem + "&telefone=" + telefone;
 		console.log(urlData);
 
 		/* Ajax */
