@@ -13,7 +13,7 @@ $(document).ready(function() {
 	$(document).on("click", "a#museuMidia", function() {
 
 		$(idAnterior).addClass("voltaMenuBranco");
-		$("section#centralSection").load(" ");
+		$("section#centralSection").load("museu/museuNaMidia.html");
 		$("#mainMuseu").removeClass("voltaMenuBranco");
 		$("#mainMuseu").addClass("active");
 		idAnterior = "#mainMuseu";

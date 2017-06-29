@@ -126,9 +126,9 @@ ul.art-vmenu a
 
 .art-postcontent h1
 {
-   color: #4973B6;
+   /*color: #4973B6;
    font-size: 32px;
-   font-family: 'Trebuchet MS', Arial, Helvetica, Sans-Serif;
+   font-family: 'Trebuchet MS', Arial, Helvetica, Sans-Serif;*/
 }
 
 .art-blockcontent h1
@@ -142,6 +142,8 @@ ul.art-vmenu a
    font-size: 32px;
    font-family: 'Trebuchet MS', Arial, Helvetica, Sans-Serif;
 }
+
+
 
 .art-postcontent h2
 {
