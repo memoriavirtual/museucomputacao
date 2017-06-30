@@ -20,7 +20,7 @@ $mail -> SMTPAuth = true;
 $mail -> Host = "smtp.gmail.com";
 $mail -> Port = "587";
 $mail -> Username = 'museudecomputacaoicmc@gmail.com';
-$mail -> Password = 'kzero12A!zerold';
+$mail -> Password = '###';
 $mail -> From = " museudecomputacaoicmc@gmail.com";
 $mail -> FromName = "Doação";
 $mail -> AddAddress('rogiel2009@gmail.com', $nome);

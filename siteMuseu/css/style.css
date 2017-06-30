@@ -553,7 +553,7 @@ nav.art-nav
 }
 
 .desktop  .art-nav-inner{
-   width: 1000px;
+   width: 1200px;
    padding-left: 0;
    padding-right: 0;
 }
@@ -2684,7 +2684,7 @@ blockquote p,
 	font-family: Verdana;
 	line-height: 18px; 
 	white-space: pre-wrap;
-	font-size: 15px;
+	font-size: 16.5px;
 }
 
 
@@ -2832,6 +2832,7 @@ input{ /*Largura do Botão*/
 	background-color: rgba(255,255,255,.6);
 	border: solid 1px #b6c7cb;
 }
+
 }
 
 @media screen and (max-width:2000px) and (min-width: 1380px)
@@ -2848,7 +2849,6 @@ input{ /*Largura do Botão*/
 	
 }	
 }
-
 
 
 label.required:after {
@@ -2904,5 +2904,36 @@ dialog img
 {
 	width: 50%;
 	margin-left: 25%;
+}
+
+.tamImgMidia
+{
+	width: 320px;
+	height:250px;
+	box-shadow: 1px 1px 10px 2px black;
+	margin: 100px;
+	margin-top: 80px;
+		
+}
+div.divEspaco
+
+{
+	display: inline-block;
+	margin: 20px;
+	
+}
+
+div.divEspaco h4
+{
+		color: rgb(158, 34, 54); 
+
+}
+@media screen and (max-width:400px) and (min-width: 1px)
+{
+	.tamImgMidia
+	{
+		width: 80%;
+		height:80%;		
+	}	
 }
 
