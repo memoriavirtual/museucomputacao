@@ -1538,7 +1538,8 @@ function telaDialogo(descricaoPeca, imagem, nomePeca) {
 	botaoFechar.className = "formatoBotao";
 	var espaco = document.createElement("br");
 	var node = document.createTextNode("Fechar");
-	var paragrafo = document.createElement("p"); // paragrafo para o texto da descrição
+	var paragrafo = document.createElement("p");
+	// paragrafo para o texto da descrição
 
 	botaoFechar.appendChild(node);
 
@@ -1559,10 +1560,6 @@ function telaDialogo(descricaoPeca, imagem, nomePeca) {
 
 		}
 	}
-	
-
-	
-	
 
 	if (descricaoPeca == null || descricaoPeca.length < 10)// não possui descrição no memória virtual
 		node = document.createTextNode(nomePeca + " não possui descrição.");
@@ -1596,8 +1593,9 @@ $(document).ready(function() {//Quando documento estiver pronto
 		var mensagem = $('#mensagem').val();
 		var telefone = $('#phone').val();
 		var file = $('#enviaArquivo').val();
+		var flag = "flag";
 
-		alert(file);
+
 
 		/* Validando */
 		if (nome.length <= 3) {
@@ -1613,27 +1611,40 @@ $(document).ready(function() {//Quando documento estiver pronto
 			return false;
 		}
 
+		var formData = new FormData();
+		formData.append('image', $('#enviaArquivo')[0].files[0]);
+		if (file != "") {
+			
+			$.ajax({
+				url : '../php/upload.php',
+				type : 'POST',
+				data : formData,
+				processData : false, // tell jQuery not to process the data
+				contentType : false, // tell jQuery not to set contentType
+				
+			});
+		}
 		/* construindo url */
-		var urlData = "&nome=" + nome + "&email=" + email + "&mensagem=" + mensagem + "&telefone=" + telefone;
+		var urlData = "&nome=" + nome + "&email=" + email + "&mensagem=" + mensagem + "&telefone=" + telefone+"&file="+file;
 		console.log(urlData);
 
-		/* Ajax */
 		$.ajax({
 			type : "POST",
-			url : "../php/enviar.php", /* endereço do script PHP */
+			url : "../php/enviar.php", //endereço do script PHP
 			async : true,
-			data : urlData, /* informa Url */
-			success : function(data) {/* sucesso */
+			data : urlData, // informa Url
+			success : function(data) {//sucesso
 				$('#contact_form').html(data);
 			},
-			beforeSend : function() {/* antes de enviar */
+			beforeSend : function() {//antes de enviar
 				$('.loading').fadeIn('fast');
 			},
-			complete : function() {/* completo */
+			complete : function() {// completo
 				$('.loading').fadeOut('fast');
 				//wow!
 			}
 		});
+		// envia o anexo
+
 	});
 });
-
