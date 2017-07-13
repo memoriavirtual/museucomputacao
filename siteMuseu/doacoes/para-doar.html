@@ -39,9 +39,9 @@
 									<div class="art-layout-cell" >
 										<img src="images/loading.gif" class="loading">
 
-										<form action="php/enviar.php" id="contact_form" autocomplete="on" method="POST" enctype="multipart/form-data">
+										<form action="php/enviar.php" id="contact_form" autocomplete="on" method="POST"  enctype="multipart/form-data">
 											<div class="row">
-												<label class="required" for="name">Nome:</label>
+												<label class="required" for="name">Nome Completo:</label>
 												<br />
 												<input id="nome" class="input" name="name"  type="text" value="Rogiel dos Santos" size="30" />
 												<br />
@@ -50,24 +50,23 @@
 											<div class="row">
 												<label class="required"  for="tel">Telefone:</label>
 												<br />
-												<input id="phone" class="input"  name="tel" type="tel" value="1689454545" size="30" maxlength="14" />
+												<input id="phone" class="input"  name="tel" type="tel"  placeholder="Ex (99)99999-9999"  size="30" maxlength="16" />
 												<br />
 												<span id="phone" class="error_message"></span>
 											</div>
 											<div class="row">
 												<label class="required" for="email">Email:</label>
 												<br />
-												<input id="email"  class="input" name="email" type="text" value="rogiel.silva@usp.br" size="30" />
+												<input id="email"  class="input" name="email" type="text"  value="rogiel.silva@usp.br" size="50" />
 												<br />
-												<span id="email_validation" class="error_message"></span>
+											
 											</div>
 
 											<div class="row">
 												<label class="required" for="message">Mensagem:</label>
 												<br />
-												<textarea id="mensagem" class="input" name="message"  rows="7" cols="30">Gostaria de doar uma peça x para o museu</textarea>
+												<textarea id="mensagem" class="input" name="message"  rows="7" cols="35">Gostaria de doar uma peça x para o museu</textarea>
 												<br />
-												<span id="message_validation" class="error_message"></span>
 											</div>
 											<div class="row">
 												<input id="enviaArquivo" type="file" name="image" />

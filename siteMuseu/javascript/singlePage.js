@@ -86,6 +86,13 @@ $(document).ready(function() {
 		$("#doacoesMain").addClass("active");
 		idAnterior = "#doacoesMain";
 	});
+	$(document).on("click", "a#formDoacoes", function() {
+		$(idAnterior).addClass("voltaMenuBranco");
+		$("section#centralSection").load("doacoes/para-doar.html");
+		$("#doacoesMain").removeClass("voltaMenuBranco");
+		$("#doacoesMain").addClass("active");
+		idAnterior = "#doacoesMain";
+	});
 	/*Contatos*/
 	$(document).on("click", "a#atendimento", function() {
 		$(idAnterior).addClass("voltaMenuBranco");

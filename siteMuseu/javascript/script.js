@@ -1355,7 +1355,6 @@ function buscaPecaAcervo(numeroPagina) {
 			for ( i = 0; i < retorno.length; i++) {
 
 				if (retorno[i].instituicao.nome == "Museu da Computação ICMC") {// para mostrar os que estao relacionados com o museu.
-					//alert(retorno[i].tituloPrincipal);
 					buscaImagem(retorno[i].id, retorno[i].tituloPrincipal, retorno[i].caracteristicasFisicasTecnicasExecutivas);
 
 				}
@@ -1401,10 +1400,9 @@ function buscaImagem(idfoto, nomePeca, descricaoPeca) {
 			$('.loading').fadeOut('low');
 		},
 		success : function(retorno) {
-			//for(l = 0;  l < retorno.length; l++){ // caso queira mostra mais de uma foto da mesma peça
-			//	for(l = 0;  l < 1; l++){ // caso queira mostra mais de uma foto da mesma peça
-
-			if (retorno[0].content != " ")// trata o caso em que não existem imagens.
+			
+			if (retorno == "");// não possui imagem				
+			else// (retorno[0].content != " ")// trata o caso em que não existem imagens.
 			{
 				var stringNome = document.createElement("article");
 				stringNome.id = "article" + idImagens;
@@ -1442,6 +1440,7 @@ function buscaImagem(idfoto, nomePeca, descricaoPeca) {
 				//document.getElementById("article" + idImagens).appendChild(para);
 				idImagens++;
 			}
+
 			//}
 
 		},
@@ -1582,6 +1581,28 @@ function fechaDialogo() {
 	document.getElementById("myDialog").close();
 }
 
+function valida_form() {
+	var filter = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+	if (!filter.test(document.getElementById("email").value)) {
+		alert('Por favor, digite o email corretamente');
+		//document.getElementById("email").focus();
+		return false;
+	}
+	return true;
+}
+
+function verificaTel() {
+
+	//var filter = /([1-9]{2})\[2-9]{1}\[0-9]{8}$/;
+	var filter = /^\([1-9]{2}\)[0-9]{4,5}-[0-9]{4}$/;
+	if (!filter.test(document.getElementById("phone").value)) {
+
+		return false;
+	}
+
+	return true;
+}
+
 
 $(document).ready(function() {//Quando documento estiver pronto
 
@@ -1593,58 +1614,79 @@ $(document).ready(function() {//Quando documento estiver pronto
 		var mensagem = $('#mensagem').val();
 		var telefone = $('#phone').val();
 		var file = $('#enviaArquivo').val();
-		var flag = "flag";
-
-
 
 		/* Validando */
-		if (nome.length <= 3) {
-			alert('Informe seu nome');
-			return false;
-		}
-		if (email.length <= 5) {
-			alert('Informe seu email');
-			return false;
-		}
-		if (mensagem.length <= 5) {
-			alert('Escreva uma mensagem');
-			return false;
-		}
+		if (nome.length <= 7)
+			alert('Informe seu nome completo.');
+		else if (email.length <= 5)
+			alert('Informe seu email.');
+		else if (mensagem.length <= 15)
+			alert('Escreva uma mensagem.');
+		else if (telefone.length <= 8)
+			alert("Telefone inválido.");
+		else if (!verificaTel())
+			alert("Por favor, digite um telefone válido Ex.(99)99999-9999");
+		else if (valida_form()) {
 
-		var formData = new FormData();
-		formData.append('image', $('#enviaArquivo')[0].files[0]);
-		if (file != "") {
-			
-			$.ajax({
-				url : '../php/upload.php',
-				type : 'POST',
-				data : formData,
-				processData : false, // tell jQuery not to process the data
-				contentType : false, // tell jQuery not to set contentType
-				
-			});
-		}
-		/* construindo url */
-		var urlData = "&nome=" + nome + "&email=" + email + "&mensagem=" + mensagem + "&telefone=" + telefone+"&file="+file;
-		console.log(urlData);
+			var urlData = "&nome=" + nome + "&email=" + email + "&mensagem=" + mensagem + "&telefone=" + telefone + "&file=" + file;
 
-		$.ajax({
-			type : "POST",
-			url : "../php/enviar.php", //endereço do script PHP
-			async : true,
-			data : urlData, // informa Url
-			success : function(data) {//sucesso
-				$('#contact_form').html(data);
-			},
-			beforeSend : function() {//antes de enviar
-				$('.loading').fadeIn('fast');
-			},
-			complete : function() {// completo
-				$('.loading').fadeOut('fast');
-				//wow!
+			var formData = new FormData();
+
+			formData.append('image', $('#enviaArquivo')[0].files[0]);
+			if (file != "") {
+
+				$.ajax({
+					url : '../php/upload.php',
+					type : 'POST',
+					data : formData,
+					processData : false, // tell jQuery not to process the data
+					contentType : false, // tell jQuery not to set contentType
+					success : function(data) {
+						if (data == "")// não tem mensagem de erro
+						{
+
+							$.ajax({
+								type : "POST",
+								url : "../php/enviar.php", //endereço do script PHP
+								async : true,
+								data : urlData, // informa Url
+								success : function(data) {//sucesso
+									$('#contact_form').html(data);
+								},
+								beforeSend : function() {//antes de enviar
+									$('.loading').fadeIn('fast');
+								},
+								complete : function() {// completo
+									$('.loading').fadeOut('fast');
+									//wow!
+								}
+							});
+						} else
+							alert(data);
+						// mostar a mensagem no formulario
+					}
+				});
+			} else {
+				$.ajax({
+					type : "POST",
+					url : "../php/enviar.php", //endereço do script PHP
+					async : true,
+					data : urlData, // informa Url
+					success : function(data) {//sucesso
+						$('#contact_form').html(data);
+					},
+					beforeSend : function() {//antes de enviar
+						$('.loading').fadeIn('fast');
+					},
+					complete : function() {// completo
+						$('.loading').fadeOut('fast');
+						//wow!
+					}
+				});
 			}
-		});
-		// envia o anexo
+
+		}
 
 	});
 });
+

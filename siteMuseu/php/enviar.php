@@ -2,11 +2,11 @@
 
 include ("PHPMailer/class.phpmailer.php");
 
-$nome = $_POST['nome'];
-$email = $_POST['email'];
-$msg = $_POST['mensagem'];
-$telefone = $_POST["telefone"];
-$file = $_POST["file"];
+$nome = strip_tags(trim($_POST['nome']));
+$email = strip_tags(trim($_POST['email']));
+$msg = strip_tags(trim($_POST['mensagem']));
+$telefone = strip_tags(trim($_POST["telefone"]));
+$file = strip_tags(trim($_POST["file"]));
 
 
 
@@ -21,7 +21,7 @@ $mail -> SMTPAuth = true;
 $mail -> Host = "smtp.gmail.com";
 $mail -> Port = "587";
 $mail -> Username = 'museudecomputacaoicmc@gmail.com';
-$mail -> Password = '***';
+$mail -> Password = '*****';
 $mail -> From = " museudecomputacaoicmc@gmail.com";
 $mail -> FromName = "Doação";
 $mail -> AddAddress('rogiel2009@gmail.com', $nome);
@@ -36,13 +36,17 @@ if ($file != "")
 
 if ($mail -> Send()) {
 	echo "E-mail enviado com sucesso!";
-	print_r($flag);
+
 } else {
 	$mail -> ErrorInfo;
 	echo "Erro ao enviar o email, por favor verifique seus dados";
 }
 $body = $mail -> Body = "<h3 style='color: rgb(158, 34, 54)'>Mensagem automática</h3><br><h4>Obrigado, em breve retornaremos o contato. ";
+$mail -> clearAddresses(); // apaga os email principal, para enviar somente para o cliente
 $mail -> AddAddress($email, $nome);
+if ($file != "") // apaga o anexo para não enviar para o usuario
+	$mail -> clearAttachments();
+
 // colocar aqui o email do museu
 if ($mail -> Send()) {
 

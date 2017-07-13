@@ -10,34 +10,29 @@
 
 	$expensions = array("jpeg", "jpg", "png");
 
-	if (in_array($file_ext, $expensions) === false) {
-		$errors[] = "extension not allowed, please choose a JPEG or PNG file.";
+	if (in_array($file_ext, $expensions) == false) {
+		$errors[] = "A extensão do arquivo anexado não é valida, por favor escolha um formato JPEG, JPG ou PNG.";
 	}
 
-	if ($file_size > 2097152) {
-		$errors[] = 'File size must be excately 2 MB';
+	if ($file_size == 0) { // se file_size for zero, é sinal que o arquivo é maior que o suportado pelo servidor
+		  //configura o tamanho no servidor, para 5MB.
+		$errors[] = "Tamanho máximo permitido 2MB";
 	}
 
 	if (empty($errors) == true) {
-		if ($file_ext == "png")
-			$file_name = "tmp.png";
-		elseif ($file_ext == "jpeg")
-			$file_name = "tmp.jpeg";
-		else
-			$file_name = "tmp.jpg";
-
+		
 		$file_name = "tmp.jpg";
 		move_uploaded_file($file_tmp, "../TmpImagens/" . $file_name);
 		//caminho do arquivo no servidor
 
 	} else {
 
-		echo "agora erro";
+		echo "$errors[0]";
 
 	}
 
 } else {
-	print_r($errors);
+	echo "Ops! Erro inesperado.";
 }
    
 ?>
