@@ -1328,6 +1328,7 @@ function buscaPecaAcervo(numeroPagina) {
 
 	var i = 0;
 	nomeBusca = document.getElementById('inputvalue').value;
+	console.log(nomeBusca);
 	rootURL = "http://143.107.183.133:8080/memoriavirtualWebService/rest/buscar/" + nomeBusca + "/" + numeroPagina;
 	$.ajax({
 		type : 'GET',
@@ -1433,11 +1434,6 @@ function buscaImagem(idfoto, nomePeca, descricaoPeca) {
 				descricaoPec.appendChild(para);
 				// coloca img como filha de a
 				document.getElementById("article" + idImagens).appendChild(descricaoPec);
-
-				/*para a imagem*/
-
-				/*fim da imagem*/
-				//document.getElementById("article" + idImagens).appendChild(para);
 				idImagens++;
 			}
 
@@ -1585,7 +1581,6 @@ function valida_form() {
 	var filter = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 	if (!filter.test(document.getElementById("email").value)) {
 		alert('Por favor, digite o email corretamente');
-		//document.getElementById("email").focus();
 		return false;
 	}
 	return true;
@@ -1593,7 +1588,6 @@ function valida_form() {
 
 function verificaTel() {
 
-	//var filter = /([1-9]{2})\[2-9]{1}\[0-9]{8}$/;
 	var filter = /^\([1-9]{2}\)[0-9]{4,5}-[0-9]{4}$/;
 	if (!filter.test(document.getElementById("phone").value)) {
 
