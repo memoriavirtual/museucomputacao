@@ -4,10 +4,7 @@
 	min-width: 240px;
 }
 
-.responsive .art-content-layout img, .responsive .art-content-layout video {
-	max-width: 100%;
-	height: auto !important;
-}
+
 
 .responsive.responsive-phone .art-content-layout img {
 	float: none !important;

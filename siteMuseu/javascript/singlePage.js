@@ -48,16 +48,16 @@ $(document).ready(function() {
 	});
 
 	/*exposicao*/
-	$(document).on("click", "a#exposicoes", function() {
+	$(document).on("click", "a#exposicaoAtual", function() {
 		$(idAnterior).addClass("voltaMenuBranco");
-		$("section#centralSection").load("exposicoes/exposicoes.html");
+		$("section#centralSection").load("exposicoes/exposicaoAtual.html");
 		$("#exposicoesMain").removeClass("voltaMenuBranco");
 		$("#exposicoesMain").addClass("active");
 		idAnterior = "#exposicoesMain";
 	});
-	$(document).on("click", "a#visitas", function() {
+	$(document).on("click", "a#exposicaoAnt", function() {
 		$(idAnterior).addClass("voltaMenuBranco");
-		$("section#centralSection").load("exposicoes/visitas.html");
+		$("section#centralSection").load("exposicoes/exposicaoAnt.html");
 		$("#exposicoesMain").removeClass("voltaMenuBranco");
 		$("#exposicoesMain").addClass("active");
 		idAnterior = "#exposicoesMain";
@@ -110,9 +110,9 @@ $(document).ready(function() {
 	});
 
 	/*Acervo*/
-	$(document).on("click", "a#acervoMain", function() {
+	$(document).on("click", "a#pesquisarAcervo", function() {
 		$(idAnterior).addClass("voltaMenuBranco");
-		$("section#centralSection").load("acervo/acervo.html");
+		$("section#centralSection").load("acervo/pesquisar.html");
 		$("#acervoMain").removeClass("voltaMenuBranco");
 		$("#acervoMain").addClass("active");
 		idAnterior = "#acervoMain";

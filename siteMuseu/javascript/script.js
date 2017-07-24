@@ -1315,6 +1315,9 @@ function apagaFilhoNoDom(id_elemento) {
 	}
 }
 
+/*$(document).keypress(function(e) {
+    if(e.which == 13) $('#meuBotao').click();
+});*/
 function findAll() {
 	idImagens = 0;
 	//para uma nova pesquisa
