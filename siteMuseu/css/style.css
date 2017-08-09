@@ -483,7 +483,7 @@ ul.art-hmenu a, ul.art-hmenu a:link, ul.art-hmenu a:visited, ul.art-hmenu a:hove
 }
 
 .art-hmenu img {
-	margin-top: 7px;
+	margin-top: 3px;
 }
 
 ul.art-hmenu, ul.art-hmenu ul
@@ -604,11 +604,11 @@ ul.art-hmenu>li>a
    margin:0 auto;
    position: relative;
    display: block;
-   height: 62px;
+   height: 54px;
    cursor: pointer;
    text-decoration: none;
    color: #FFFFFF;
-   line-height: 62px;
+   line-height: 54px;
    text-align: center;
 }
 
@@ -1332,6 +1332,7 @@ label.art-radiobutton:before
    width:12px;
    height:12px;
 }
+
 label.art-radiobutton
 {
    cursor: pointer;
@@ -2678,7 +2679,7 @@ blockquote p,
 		
 	width: 100%;
 	height:100%;
-	margin-left: -10px;
+	margin-left: -5px;
 	
 	
 }
@@ -2698,7 +2699,7 @@ section.sectionImagens img {
 	width: 250px;
 	height:250px;
 	box-shadow: 1px 1px 10px 2px black;	
-	margin-left: 60px;
+	margin-left: 30px;
 	margin-top: 5px;
 	
 }
@@ -2726,10 +2727,16 @@ section.sectionImagens img {
 #posArticle
 {
 
+
+margin-left: 30%;	
+
+}
+#posArticleimg
+{
+
 position:relative;
 display: block;
 left: 30px;	
-
 
 }
 
@@ -2810,7 +2817,7 @@ input{ /*Largura do Botão*/
 {
    
 	display: block;    
-    margin-left: 30%;
+   
     position: absolute;
     width: 40%;
     height:100%;    
@@ -2852,21 +2859,34 @@ label.required:after {
     border:none!important;
     background-color: #FCFCFC!important;
     overflow: auto;
+   	border-radius: 10px;
     width: 50%;
-    height: 70%;
-    
+    height: 70%;    
 }
+
+
 
 dialog img
 {
 	width: 70%;
 	height: 70%;
-	margin-left: 20%;
+	margin-left: 50%;
+}
+dialog
+{
+	top: 50%;
 }
 #myDialog button
 {
 	
-	margin-left: 45%;
+	
+}
+
+dialog p{
+
+	color: rgb(121, 128, 139);	
+	font-size: 16px;
+
 }
 .loading {
 	display: none;
@@ -2874,15 +2894,18 @@ dialog img
 }
 
 .imagemBancoDialog{
-	width: 30%;
-	height: 15%;
-	margin-left: 35%;
+	width: 45%;
+	height: 20%;
+	margin-left: 30%;
+	
+	
 }
 
 .paragrafoTexto
 {
-	width: 50%;
-	margin-left: 25%;
+	width: 80%;
+	margin-left: 40%;
+	
 }
 
 .tamImgMidia
@@ -2927,7 +2950,8 @@ div.divEspaco h4
 	.imageSlides
 	{
    
-	display: block;    
+	display: block; 
+      
     margin-left: 15.5%;
     position: absolute;
     width: 70%;
@@ -2977,6 +3001,7 @@ div.divEspaco h4
     border:none!important;
     background-color: #FCFCFC!important;
     overflow: auto;
+    border-radius: 10px;
     width: 85%;
     height: 60%;
     
@@ -3003,7 +3028,6 @@ div.divEspaco h4
 	
 
 }
-
 
 
 		

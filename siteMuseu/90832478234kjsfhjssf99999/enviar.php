@@ -20,8 +20,8 @@ $mail -> SMTPSecure = "tls";
 $mail -> SMTPAuth = true;
 $mail -> Host = "smtp.gmail.com";
 $mail -> Port = "587";
-$mail -> Username = 'museudecomputacaoicmc@gmail.com';
-$mail -> Password = '*****';
+$mail -> Username = 'museudecomputacaoicmc@gmail.com'; 
+$mail -> Password = '*****'; // senha no drive
 $mail -> From = " museudecomputacaoicmc@gmail.com";
 $mail -> FromName = "Doação";
 $mail -> AddAddress('rogiel2009@gmail.com', $nome);
