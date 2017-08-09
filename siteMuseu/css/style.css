@@ -2945,7 +2945,7 @@ div.divEspaco h4
 	font-size: 16px;
 }
 
-@media screen and (max-width: 750px) and (min-width: 1px)
+@media screen and (max-width: 800px) and (min-width: 1px)
 {
 	.imageSlides
 	{
@@ -3010,7 +3010,7 @@ div.divEspaco h4
 	dialog img
 	{
 		width: 70%;
-		height: 70%;
+		height: 40%;
 		margin-left: 20%;
 	}
 	
