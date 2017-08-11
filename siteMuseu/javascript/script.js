@@ -1317,9 +1317,6 @@ function apagaFilhoNoDom(id_elemento) {
 	}
 }
 
-/*$(document).keypress(function(e) {
- if(e.which == 13) $('#meuBotao').click();
- });*/
 function findAll() {
 	idImagens = 0;
 	//para uma nova pesquisa
@@ -1506,7 +1503,6 @@ function telaDialogo(descricaoPeca, imagem, nomePeca) {
 	botaoFechar.className = "formatoBotao";
 	var espaco = document.createElement("br");
 	var node = document.createTextNode("Fechar");
-
 	var paragrafo = document.createElement("p");
 
 	var divDialog = document.createElement("div");
@@ -1555,6 +1551,14 @@ function telaDialogo(descricaoPeca, imagem, nomePeca) {
 	document.getElementById("myDialog").appendChild(botaoFechar);
 
 	document.getElementById("myDialog").showModal();
+
+	alinhaScroll();
+
+}
+
+function alinhaScroll() {
+
+	$("dialog").scrollTop(0);
 
 }
 

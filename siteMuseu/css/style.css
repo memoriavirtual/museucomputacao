@@ -2894,13 +2894,15 @@ label.required:after {
 
 .dialogo {
  	
+ 	
     border:none!important;
     background-color: #FCFCFC!important;
-    overflow: auto;
    	border-radius: 10px;
+   	overflow:auto;
     width: 50%;
-    height: 70%;   
-    z-index: 2; 
+    height: 70%;  
+    z-index: 1;
+     
 }
 
 
@@ -2933,7 +2935,7 @@ dialog button
 }
 dialog
 {
-	top: 50%;
+	top: 55%;
 }
 #myDialog button
 {
@@ -3089,7 +3091,7 @@ div.divEspaco
     border-radius: 10px;
     width: 85%;
     height: 60%;
-    z-index: 2;
+    z-index: 1;
     
 	}
 
