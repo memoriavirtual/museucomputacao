@@ -16,7 +16,7 @@
 
 	if ($file_size == 0) { // se file_size for zero, é sinal que o arquivo é maior que o suportado pelo servidor
 		  //configura o tamanho no servidor, para 5MB.
-		$errors[] = "Tamanho máximo permitido 2MB";
+		$errors[] = "Tamanho máximo permitido 5MB";
 	}
 
 	if (empty($errors) == true) {

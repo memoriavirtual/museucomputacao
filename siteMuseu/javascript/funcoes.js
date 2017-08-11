@@ -5,7 +5,7 @@ var i = 0;
 function slidePrincipal() {
 
 	document.getElementById('id').src = "images/ImagensSlides/" + i + ".jpg";
-	setTimeout("slidePrincipal()", 2500);
+	setTimeout("slidePrincipal()", 6000);
 	if (i >= quantImg)
 		i = -1;
 	i++;

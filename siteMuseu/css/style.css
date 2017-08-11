@@ -2657,6 +2657,17 @@ blockquote p,
 	line-height: 19px;
 	white-space: pre-wrap;
 }
+.corFonteBanco
+{
+	color: rgb(158, 34, 54); 
+	font-family: Verdana; 
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 19px;
+	white-space: pre-wrap;
+	text-align: center;
+	
+}
 .corFonteTexto
 {
 	color: rgb(121, 128, 139);
@@ -2719,10 +2730,7 @@ section.sectionImagens img {
 {
 	background-color: #e7e7e7;
 	border-radius: 5px;
-	
-
 }
-
 
 #posArticle
 {
@@ -2810,6 +2818,190 @@ input{ /*Largura do Botão*/
 	
 }
 
+.posiHP
+{
+	
+	font-family: Arial;
+	color: #79808B;
+	margin-left: 30%; 
+}
+
+p.posiHPimg img
+{
+	width= 285px;
+	height= 281px;
+	margin-left: 34%; 
+}
+
+.videoSize
+{
+	width: 60%;
+	height: 345px;
+}
+
+#myDialogMenu
+{
+	background-color: red;
+	border: none;
+	
+	
+	
+}
+.divDialogMenu
+{
+	
+   background: #232324;
+   background: linear-gradient(top, #3A3A3B 0, #0F0F0F 100%) no-repeat;
+   background: -webkit-linear-gradient(top, #3A3A3B 0, #0F0F0F 100%) no-repeat;
+   background: -moz-linear-gradient(top, #3A3A3B 0, #0F0F0F 100%) no-repeat;
+   background: -o-linear-gradient(top, #3A3A3B 0, #0F0F0F 100%) no-repeat;
+   background: -ms-linear-gradient(top, #3A3A3B 0, #0F0F0F 100%) no-repeat;
+   background: linear-gradient(top, #3A3A3B 0, #0F0F0F 100%) no-repeat;
+ 	 	
+   width: 104%;
+   height: 55px;
+   margin-left: -14px;
+   border-radius: 11px 0px 0px 0px;
+   margin-top : -25px;
+  
+
+   
+	
+}
+div.divDialogMenu h3{
+	
+	text-align:center;
+	padding-top:10px;
+	color: rgb(255, 255, 255); 
+
+}
+label.required:after {
+  content:'*';
+  color:red;
+}
+
+.error {
+  background-color:#FFDFDF;
+  color:red;
+}
+.error_message{
+  font-style: italic;
+  font-size: 10px;
+}
+.row {
+  margin:3px;
+}
+
+.dialogo {
+ 	
+    border:none!important;
+    background-color: #FCFCFC!important;
+    overflow: auto;
+   	border-radius: 10px;
+    width: 50%;
+    height: 70%;   
+    z-index: 2; 
+}
+
+
+
+dialog img
+{
+	width: 70%;
+	height: 70%;
+	padding-left: 15%;
+}
+img.imagemBancoDialog /*para o firefox*/
+{
+
+	width: 50%;
+	height: 50%;
+	padding-left: 20%;
+	
+}
+
+
+dialog button
+{
+	
+	
+	margin-left: 42%;
+	size: 25px;
+	height: 30px;
+	width: 100px;
+	
+}
+dialog
+{
+	top: 50%;
+}
+#myDialog button
+{
+	
+	
+}
+
+dialog p{
+
+	color: rgb(121, 128, 139);	
+	font-size: 16px;
+
+}
+.loading {
+	display: none;
+	margin-left: 45%; 
+}
+
+.imagemBancoDialog{
+	width: 45%;
+	height: 20%;
+	margin-left: 80%;
+	
+	
+}
+
+p.paragrafoTexto
+{
+	
+	margin-left: 5%;
+	color: rgb(121, 128, 139);	
+	font-size: 16px;
+	
+}
+
+.tamImgMidia
+{
+	width: 320px;
+	height:210px;
+	box-shadow: 1px 1px 10px 2px black;
+	margin: 100px;
+	margin-top: 80px;
+		
+}
+div.divEspaco
+
+{
+	display: inline-block;
+	margin: 20px;
+	
+}
+
+
+
+#map{
+	width:400px;
+	height:400px;
+	background:white"
+}
+
+.textoTitulo
+{
+	
+	font-weight: bold;
+	color: #79808B;
+	font-size: 16px;
+}
+
 	
 @media screen and (max-width:3500px) and (min-width: 1380px)
 {
@@ -2837,113 +3029,7 @@ input{ /*Largura do Botão*/
 }
 
 
-label.required:after {
-  content:'*';
-  color:red;
-}
 
-.error {
-  background-color:#FFDFDF;
-  color:red;
-}
-.error_message{
-  font-style: italic;
-  font-size: 10px;
-}
-.row {
-  margin:3px;
-}
-
-.dialogo {
- 	
-    border:none!important;
-    background-color: #FCFCFC!important;
-    overflow: auto;
-   	border-radius: 10px;
-    width: 50%;
-    height: 70%;    
-}
-
-
-
-dialog img
-{
-	width: 70%;
-	height: 70%;
-	margin-left: 50%;
-}
-dialog
-{
-	top: 50%;
-}
-#myDialog button
-{
-	
-	
-}
-
-dialog p{
-
-	color: rgb(121, 128, 139);	
-	font-size: 16px;
-
-}
-.loading {
-	display: none;
-	margin-left: 45%; 
-}
-
-.imagemBancoDialog{
-	width: 45%;
-	height: 20%;
-	margin-left: 30%;
-	
-	
-}
-
-.paragrafoTexto
-{
-	width: 80%;
-	margin-left: 40%;
-	
-}
-
-.tamImgMidia
-{
-	width: 320px;
-	height:250px;
-	box-shadow: 1px 1px 10px 2px black;
-	margin: 100px;
-	margin-top: 80px;
-		
-}
-div.divEspaco
-
-{
-	display: inline-block;
-	margin: 20px;
-	
-}
-
-div.divEspaco h4
-{
-		color: rgb(158, 34, 54); 
-
-}
-
-#map{
-	width:400px;
-	height:400px;
-	background:white"
-}
-
-.textoTituloExposicao
-{
-	
-	font-weight: bold;
-	color: #79808B;
-	font-size: 16px;
-}
 
 @media screen and (max-width: 800px) and (min-width: 1px)
 {
@@ -2958,8 +3044,7 @@ div.divEspaco h4
     height: 100%;    
     z-index: 2;
 	
-	}
-	
+	}	
 
 	#contact_form{
 	height: 100%;
@@ -2971,7 +3056,7 @@ div.divEspaco h4
 	-moz-border-radius: 5px;
 	border-radius: 5px;
 	
-}
+	}
 	
 	#contact_form input[type = "text"], #contact_form input[type= tel],  #contact_form textarea{
     width: 80%;
@@ -3004,6 +3089,7 @@ div.divEspaco h4
     border-radius: 10px;
     width: 85%;
     height: 60%;
+    z-index: 2;
     
 	}
 
@@ -3021,13 +3107,63 @@ div.divEspaco h4
 	}
 	#map{
 	margin-left: 18px;
-	width:300px;
+	width:250px;
 	height:300px;
 	background:white";
 	}
+	.posiHP
+	{
+	margin-left: 4%;
+	font-family: Arial;
+	color: #79808B;
+	}
+	p.posiHPimg img
+	{
+		width= 285px;
+		height= 281px;
+		margin-left: 5%; 
+	}
+	.videoSize
+	{
+		width:80%;
+		height:80%;
+	}
+	.divDialogMenu
+	{
+		background: #232324;
+   		background: linear-gradient(top, #3A3A3B 0, #0F0F0F 100%) no-repeat;
+   		background: -webkit-linear-gradient(top, #3A3A3B 0, #0F0F0F 100%) no-repeat;
+   		background: -moz-linear-gradient(top, #3A3A3B 0, #0F0F0F 100%) no-repeat;
+   		background: -o-linear-gradient(top, #3A3A3B 0, #0F0F0F 100%) no-repeat;
+   		background: -ms-linear-gradient(top, #3A3A3B 0, #0F0F0F 100%) no-repeat;
+   		background: linear-gradient(top, #3A3A3B 0, #0F0F0F 100%) no-repeat;
+ 	 	
+   		width: 110%;
+   		height: 55px;
+   		margin-left: -14px;
+   		border-radius: 11px 0px 0px 0px;
+   		margin-top : -25px;
+  
+
+   
 	
+	}
+	dialog button
+	{
+	
+	
+		margin-left: 35%;
+		size: 25px;
+		height: 30px;
+		width: 100px;
+	
+	}
 
 }
+
+
+
+
 
 
 		

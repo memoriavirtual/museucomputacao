@@ -21,10 +21,10 @@ $mail -> SMTPAuth = true;
 $mail -> Host = "smtp.gmail.com";
 $mail -> Port = "587";
 $mail -> Username = 'museudecomputacaoicmc@gmail.com'; 
-$mail -> Password = '*****'; // senha no drive
+$mail -> Password = '**********'; // colocar a senha aqui
 $mail -> From = " museudecomputacaoicmc@gmail.com";
 $mail -> FromName = "Doação";
-$mail -> AddAddress('rogiel2009@gmail.com', $nome);
+$mail -> AddAddress('museu@icmc.usp.br', $nome);
 $mail -> IsHTML(true);
 $mail -> CharSet = 'utf-8';
 $mail -> Subject = "Mensagem do Site Museu";

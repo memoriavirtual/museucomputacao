@@ -1310,8 +1310,10 @@ function chamaDescricao() {
 
 function apagaFilhoNoDom(id_elemento) {
 	var elemento = document.getElementById(id_elemento);
-	while (elemento.firstChild) {
-		elemento.removeChild(elemento.firstChild);
+	if (elemento != null) {
+		while (elemento.firstChild) {
+			elemento.removeChild(elemento.firstChild);
+		}
 	}
 }
 
@@ -1335,14 +1337,24 @@ document.addEventListener('keypress', function(e) {// pesquisar pela tecla enter
 		apagaFilhoNoDom("sectionImagens");
 		numeroPaginaLocal = numeroPagina;
 		buscaPecaAcervo(numeroPagina);
+
 	}
 }, false);
+
+$(document).ready(function() {
+
+	// Ao pressionar o Esc, o alert é mostrado
+	$(document).keyup(function(e) {
+		if (e.keyCode == 27) {
+			apagaFilhoNoDom("myDialog");
+		}
+	});
+});
 
 function buscaPecaAcervo(numeroPagina) {
 
 	var i = 0;
 	nomeBusca = document.getElementById('inputvalue').value;
-	console.log(nomeBusca);
 	rootURL = "http://143.107.183.133:8080/memoriavirtualWebService/rest/buscar/" + nomeBusca + "/" + numeroPagina;
 	$.ajax({
 		type : 'GET',
@@ -1427,7 +1439,7 @@ function buscaImagem(idfoto, nomePeca, descricaoPeca) {
 
 				stringNome = document.createElement("h4");
 				var node = document.createTextNode(nomePeca);
-				stringNome.className = "corFonte";
+				stringNome.className = "corFonteBanco";
 				stringNome.appendChild(node);
 				document.getElementById("article" + idImagens).appendChild(stringNome);
 
@@ -1494,7 +1506,16 @@ function telaDialogo(descricaoPeca, imagem, nomePeca) {
 	botaoFechar.className = "formatoBotao";
 	var espaco = document.createElement("br");
 	var node = document.createTextNode("Fechar");
+
 	var paragrafo = document.createElement("p");
+
+	var divDialog = document.createElement("div");
+	divDialog.className = "divDialogMenu";
+
+	var titleDialog = document.createElement("h3");
+	var titleText = document.createTextNode(nomePeca);
+	titleDialog.appendChild(titleText);
+
 	// paragrafo para o texto da descrição
 
 	botaoFechar.appendChild(node);
@@ -1519,17 +1540,22 @@ function telaDialogo(descricaoPeca, imagem, nomePeca) {
 
 	if (descricaoPeca == null || descricaoPeca.length < 10)// não possui descrição no memória virtual
 		node = document.createTextNode(nomePeca + " não possui descrição.");
-	else
+	else {
 		node = document.createTextNode(descricaoPeca);
 
-	paragrafo.appendChild(node);
+	}
 
+	divDialog.appendChild(titleDialog);
+
+	paragrafo.appendChild(node);
+	document.getElementById("myDialog").appendChild(divDialog);
 	document.getElementById("myDialog").appendChild(para);
 	document.getElementById("myDialog").appendChild(paragrafo);
 	document.getElementById("myDialog").appendChild(espaco);
 	document.getElementById("myDialog").appendChild(botaoFechar);
 
 	document.getElementById("myDialog").showModal();
+
 }
 
 function fechaDialogo() {
@@ -1591,7 +1617,7 @@ $(document).ready(function() {//Quando documento estiver pronto
 			if (file != "") {
 
 				$.ajax({
-					url : '../php/upload.php',
+					url : '../90832478234kjsfhjssf99999/upload.php',
 					type : 'POST',
 					data : formData,
 					processData : false, // tell jQuery not to process the data
