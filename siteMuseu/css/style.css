@@ -2290,6 +2290,16 @@ blockquote p,
    text-indent: 35px;
    background-position: left center;
 }
+.art-prceu-tag-icon
+{
+   background:  url('../images/prceu.png') no-repeat scroll;
+   margin:0 auto;
+   min-height:32px;
+   min-width:60px;
+   display: inline-block;
+   text-indent: 50px;
+
+}
 
 .art-twitter-tag-icon:empty
 {
