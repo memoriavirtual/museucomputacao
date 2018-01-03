@@ -1467,7 +1467,11 @@ function buscaImagem(idfoto, nomePeca, descricaoPeca) {
 
             //#########################################
             //OPEN PRODUCT
-            $('body').on('click', 'img.imagemBanco', function () {
+            isNull = null;
+            $('body').on('click', 'img.imagemBanco', function (e) {
+
+                jQuery('html, body').animate({scrollTop: 50}, 0);
+
                 var title = $(this).attr('title');
                 var id = $(this).attr('id');
                 var src = $(this).attr('src');
@@ -1488,6 +1492,7 @@ function buscaImagem(idfoto, nomePeca, descricaoPeca) {
                         },
                         beforeSend: function () {//antes de enviar
                             $('.loading').fadeIn('fast');
+                            $("#open-pesquisar").fadeOut("fast");
                         },
                         complete: function () {// completo
                             $('.loading').fadeOut('fast');
@@ -1497,31 +1502,38 @@ function buscaImagem(idfoto, nomePeca, descricaoPeca) {
                             i = false;
                             //console.log(retorno);
 
+                            if (isNull === null) {
+                                isNull = retorno;
 
-                            $("section#centralSection").fadeOut("fast");
-                            $("section#centralSectionProduct").fadeIn("fast").load("acervo/product.html", function () {
+                                $("#open-product").fadeIn("fast").load("acervo/product.html", function (e) {
+                                    var divTop = $('#open-product');
+                                    jQuery('html, body').animate({scrollTop: divTop.offset().top - 10}, 300);
 
-                                $("#product-title h2").text(title);
-                                $("#product-img img").attr("src", src);
-                                if (description == "") {
-                                    $("#product-desc p").text(title + " não possui descrição.");
-                                } else {
-                                    $("#product-desc p").text(description);
-                                }
 
-                                for (i = 0; i < retorno.length; i++) {
-                                    //telaDialogo(retorno[i].descricao, retorno[i].content, title);
-                                    $("#product-imgs").after('<img class="product-imgs" style="cursor: pointer;" width="100" src="data:image/jpeg;base64,' + retorno[i].content + '"/>');
+                                    $("#product-title h2").text(title);
+                                    $("#product-img img").attr("src", src);
+                                    if (description == "") {
+                                        $("#product-desc p").text(title + " não possui descrição.");
+                                    } else {
+                                        $("#product-desc p").text(description);
+                                    }
 
-                                    $("body").on('click', '.product-imgs', function () {
-                                        var src = $(this).attr('src');
-                                        console.log(src);
-                                        $("#product-img img").attr("src", src);
-                                        return false;
-                                    });
-                                }
+                                    for (i = 0; i < retorno.length; i++) {
+                                        //telaDialogo(retorno[i].descricao, retorno[i].content, title);
+                                        $("#product-imgs").after('<img class="product-imgs" style="cursor: pointer;" width="100" src="data:image/jpeg;base64,' + retorno[i].content + '"/>');
 
-                            });
+                                        $("body").on('click', '.product-imgs', function () {
+                                            var src = $(this).attr('src');
+                                            $("#product-img img").attr("src", src);
+                                            return false;
+                                        });
+                                    }
+
+                                    e.preventDefault();
+
+                                });
+
+                            }
 
                         },
                         error: function () {
@@ -1534,11 +1546,14 @@ function buscaImagem(idfoto, nomePeca, descricaoPeca) {
 
                 $("body").on("click", "#product-voltar", function () {
 
-                    $("section#centralSection").fadeIn("fast");
-                    $("section#centralSectionProduct").fadeOut("fast");
+                    $("#open-pesquisar").fadeIn("fast");
+                    $("#open-product").fadeOut("fast").html('');
+                    isNull = null;
 
                     return false;
                 });
+
+                e.preventDefault();
 
                 return false;
             });
